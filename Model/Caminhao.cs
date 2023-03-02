@@ -19,7 +19,7 @@ namespace Model
 
     public override string ToString()
     {
-      return $"Id: {this.Id} Placa: {this.Placa} Motorista: {this.Motorista}";
+      return $"Id: {this.Id} Placa: {this.Placa} Motorista: {this.Motorista} Valor Total: {Caminhao.ValorTotalCaminhao(this.Id)} Quantidade de Rotas: {Caminhao.TotalRotasCaminhao(this.Id)}";
     }
 
     public static void EditarCaminhao(int id, string placa, string motorista)
@@ -42,6 +42,24 @@ namespace Model
         throw new Exception("Caminhão não encontrado");
 
       return caminhao;
+    }
+
+    public static int TotalRotasCaminhao(int id)
+    {
+      int quantidadeRotas = (from rota in Rota.Rotas
+                                        join caminhao in Caminhao.Caminhoes on rota.idCaminhao equals caminhao.Id
+                                        where caminhao.Id == id
+                                        select rota).Count();
+      return quantidadeRotas;
+    }
+
+    public static double ValorTotalCaminhao(int id)
+    {
+      double valorTotal = (from rota in Rota.Rotas
+                                        join caminhao in Caminhao.Caminhoes on rota.idCaminhao equals caminhao.Id
+                                        where caminhao.Id == id
+                                        select rota.ValorRota).Sum();
+      return valorTotal;
     }
   }
 }
