@@ -21,6 +21,7 @@ namespace View
       Console.WriteLine("10 - Listar Rotas");
       Console.WriteLine("11 - Editar Rotas");
       Console.WriteLine("12 - Excluir Rotas");
+      Console.WriteLine("13 - Valor Médio Rotas");
       Console.WriteLine("0 - Sair");
       opcao = int.Parse(Console.ReadLine());
 
@@ -61,6 +62,9 @@ namespace View
           break;
         case 12:
           View.Rota.ShowExcluirRota();
+          break;
+        case 13:
+          View.Rota.ShowMediaValorRotas();
           break;
         case 0:
           Console.WriteLine("0 - Sair");

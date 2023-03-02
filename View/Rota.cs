@@ -17,8 +17,10 @@ namespace View
       string idCaminhao = Console.ReadLine();
       Console.WriteLine("Informe a Data de Saída");
       string dataSaida = Console.ReadLine();
+      Console.WriteLine("Informe o Valor da Rota");
+      string valorRota = Console.ReadLine();
 
-      Controller.Rota.CadastrarRota(id, idCidadeOrigem, idCidadeDestino, idCaminhao, dataSaida);
+      Controller.Rota.CadastrarRota(id, idCidadeOrigem, idCidadeDestino, idCaminhao, dataSaida, valorRota);
 
       Console.WriteLine("Rota cadastrada com sucesso");
     }
@@ -45,8 +47,10 @@ namespace View
       string idCaminhao = Console.ReadLine();
       Console.WriteLine("Informe a Data de Saída");
       string dataSaida = Console.ReadLine();
-
-      Controller.Rota.EditarRota(id, idCidadeOrigem, idCidadeDestino, idCaminhao, dataSaida);
+      Console.WriteLine("Informe o Valor da Rota");
+      string valorRota = Console.ReadLine();
+      
+      Controller.Rota.EditarRota(id, idCidadeOrigem, idCidadeDestino, idCaminhao, dataSaida, valorRota);
 
       Console.WriteLine("Rota editada com sucesso");
     }
@@ -59,6 +63,11 @@ namespace View
       Controller.Rota.ExcluirRota(id);
 
       Console.WriteLine("Rota excluída com sucesso");
+    }
+
+    public static void ShowMediaValorRotas()
+    {
+      Controller.Rota.MediaValorRotas();
     }
   }
 }

@@ -12,5 +12,27 @@ namespace Utils
       }
       return idConvert;
     }
+
+    public static double ConvertToDouble(string valor)
+    {
+      double valorConvert = 0;
+      try {
+        valorConvert = Convert.ToDouble(valor);
+      } catch (Exception) {
+        throw new Exception("Valor inválido");
+      }
+      return valorConvert;
+    }
+
+    public static bool ValidarData(string data)
+    {
+      DateTime dataConvert;
+      try {
+        dataConvert = Convert.ToDateTime(data);
+      } catch (Exception) {
+        throw new Exception("Data inválida");
+      }
+      return true;
+    }
   }
 }
